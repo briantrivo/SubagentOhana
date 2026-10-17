@@ -1,0 +1,374 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==========================================================================
+   THEME TOKENS: DARK (ASTRONIXA DEFAULT) vs LIGHT
+   ========================================================================== */
+:root {
+  --crm-bg-base: #02062a;
+  --crm-bg-sidebar: rgba(2, 5, 32, 0.95);
+  --crm-bg-col1: rgba(2, 6, 34, 0.95);
+  --crm-bg-col2: rgba(2, 6, 42, 0.70);
+  --crm-bg-col3: rgba(2, 6, 34, 0.95);
+  --crm-header-bg: rgba(3, 6, 34, 0.95);
+  --crm-card-bg: rgba(3, 6, 26, 0.75);
+  --crm-input-bg: rgba(7, 11, 52, 0.90);
+  --crm-border: rgba(173, 48, 251, 0.25);
+  --crm-border-subtle: rgba(255, 255, 255, 0.08);
+  --crm-border-accent: rgba(173, 48, 251, 0.50);
+  --crm-text-primary: #ffffff;
+  --crm-text-secondary: #cfc2d9;
+  --crm-text-muted: #8a88a8;
+  --crm-item-hover: rgba(255, 255, 255, 0.04);
+  --crm-item-active-bg: linear-gradient(90deg, rgba(28, 8, 54, 0.95) 0%, rgba(12, 18, 61, 0.85) 100%);
+  --crm-item-active-border: #c044ff;
+  --crm-bubble-customer-bg: rgba(7, 11, 48, 0.95);
+  --crm-bubble-customer-border: rgba(48, 118, 254, 0.40);
+  --crm-bubble-customer-text: #f0f1f6;
+  --crm-bubble-ai-bg: linear-gradient(135deg, rgba(30, 10, 59, 0.95) 0%, rgba(11, 22, 64, 0.95) 100%);
+  --crm-bubble-ai-border: rgba(192, 68, 255, 0.70);
+  --crm-bubble-ai-text: #ffffff;
+  --crm-banner-bg: linear-gradient(90deg, rgba(28, 8, 54, 0.92) 0%, rgba(12, 18, 61, 0.85) 100%);
+  --crm-banner-text: #f0f1f6;
+  --crm-input-box-bg: rgba(3, 6, 38, 0.95);
+  --crm-btn-ai-suggest-bg: #1c0836;
+  --crm-btn-ai-suggest-border: rgba(173, 48, 251, 0.60);
+  --crm-btn-ai-suggest-text: #fc3cff;
+  --crm-btn-ai-auto-bg: #08153d;
+  --crm-btn-ai-auto-border: rgba(48, 118, 254, 0.60);
+  --crm-btn-ai-auto-text: #2bb9f9;
+}
+
+html.theme-light,
+body.theme-light {
+  --crm-bg-base: #f1f4f9;
+  --crm-bg-sidebar: #ffffff;
+  --crm-bg-col1: #ffffff;
+  --crm-bg-col2: #f8fafc;
+  --crm-bg-col3: #ffffff;
+  --crm-header-bg: #ffffff;
+  --crm-card-bg: rgba(255, 255, 255, 0.95);
+  --crm-input-bg: #f8fafc;
+  --crm-border: #e2e8f0;
+  --crm-border-subtle: #edf2f7;
+  --crm-border-accent: #c084fc;
+  --crm-text-primary: #0f172a;
+  --crm-text-secondary: #475569;
+  --crm-text-muted: #94a3b8;
+  --crm-item-hover: #f8fafc;
+  --crm-item-active-bg: #f3e8ff;
+  --crm-item-active-border: #9333ea;
+  --crm-bubble-customer-bg: #ffffff;
+  --crm-bubble-customer-border: #e2e8f0;
+  --crm-bubble-customer-text: #0f172a;
+  --crm-bubble-ai-bg: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
+  --crm-bubble-ai-border: #d8b4fe;
+  --crm-bubble-ai-text: #3b0764;
+  --crm-banner-bg: #eff6ff;
+  --crm-banner-text: #1e3a8a;
+  --crm-input-box-bg: #ffffff;
+  --crm-btn-ai-suggest-bg: #f3e8ff;
+  --crm-btn-ai-suggest-border: #d8b4fe;
+  --crm-btn-ai-suggest-text: #7e22ce;
+  --crm-btn-ai-auto-bg: #eff6ff;
+  --crm-btn-ai-auto-border: #bfdbfe;
+  --crm-btn-ai-auto-text: #1d4ed8;
+}
+
+html {
+  font-size: 15.5px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  color: var(--crm-text-primary);
+  background-color: var(--crm-bg-base);
+  background-image: url('/astronixa-bg.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+  background-attachment: fixed;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+  line-height: 1.5;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+body.theme-light {
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(192, 68, 255, 0.08) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(43, 185, 249, 0.08) 0px, transparent 50%),
+    radial-gradient(at 50% 0%, rgba(99, 102, 241, 0.05) 0px, transparent 50%);
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(3, 6, 34, 0.8);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #7c3aed;
+  border-radius: 9999px;
+  box-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a855f7;
+}
+
+.theme-light ::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+.theme-light ::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  box-shadow: none;
+}
+
+.theme-light ::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Astronixa Title Gradients */
+.astronixa-title-gradient {
+  background: linear-gradient(90deg, #2bb9f9 0%, #fc3cff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.astronixa-purple-blue-gradient {
+  background: linear-gradient(90deg, #c044ff 0%, #3076fe 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Astronixa Cards */
+.astronixa-card {
+  background: var(--crm-card-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--crm-border);
+  box-shadow: 0 0 24px rgba(81, 82, 218, 0.25), inset 0 0 18px rgba(81, 82, 218, 0.15);
+  border-radius: 1.5rem;
+  color: var(--crm-text-primary);
+  transition: all 0.25s ease;
+}
+
+.theme-light .astronixa-card {
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05), 0 2px 6px -1px rgba(0, 0, 0, 0.03);
+}
+
+.astronixa-card:hover {
+  border-color: rgba(192, 68, 255, 0.6);
+  box-shadow: 0 0 32px rgba(147, 51, 234, 0.35), inset 0 0 20px rgba(81, 82, 218, 0.2);
+}
+
+.theme-light .astronixa-card:hover {
+  border-color: rgba(192, 68, 255, 0.45);
+  box-shadow: 0 10px 25px -3px rgba(192, 68, 255, 0.12);
+}
+
+/* Astronixa Buttons */
+.astronixa-btn-primary {
+  background: linear-gradient(90deg, #c044ff 0%, #3076fe 100%);
+  border: 1px solid rgba(184, 119, 221, 0.7);
+  box-shadow: 0 0 28px 2px rgba(81, 82, 218, 0.5), inset 0 0 20px rgba(81, 82, 218, 0.35);
+  color: #fff;
+  transition: all 0.25s ease;
+}
+
+.astronixa-btn-primary:hover {
+  box-shadow: 0 0 36px 4px rgba(192, 68, 255, 0.65), inset 0 0 24px rgba(81, 82, 218, 0.45);
+  transform: translateY(-1px);
+}
+
+.astronixa-btn-ghost {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--crm-border);
+  color: var(--crm-text-primary);
+  transition: all 0.25s ease;
+}
+
+.astronixa-badge {
+  border: 1px solid #b647ff;
+  border-radius: 2rem;
+  color: #adc6ff;
+  background: rgba(81, 82, 218, 0.15);
+  box-shadow: 0 0 20px rgba(81, 82, 218, 0.4), inset 0 0 15px rgba(81, 82, 218, 0.3);
+}
+
+.theme-light .astronixa-badge {
+  border: 1px solid rgba(192, 68, 255, 0.35);
+  background: rgba(192, 68, 255, 0.08);
+  color: #7c3aed;
+  box-shadow: none;
+}
+
+/* Universal Light Mode Contrast Guardians */
+.theme-light .text-white {
+  color: var(--crm-text-primary) !important;
+}
+
+.theme-light .astronixa-btn-primary,
+.theme-light .astronixa-btn-primary *,
+.theme-light button.bg-gradient-to-r,
+.theme-light button.bg-gradient-to-r *,
+.theme-light .bg-emerald-500,
+.theme-light .bg-rose-500,
+.theme-light .bg-blue-600 {
+  color: #ffffff !important;
+}
+
+.theme-light .text-\[\#f0f1f6\] {
+  color: var(--crm-text-primary) !important;
+}
+
+.theme-light .text-\[\#cfc2d9\] {
+  color: var(--crm-text-secondary) !important;
+}
+
+.theme-light .bg-\[\#070b34\],
+.theme-light .bg-\[\#030622\],
+.theme-light .bg-\[\#02062a\],
+.theme-light .bg-\[\#080d38\],
+.theme-light .bg-\[\#1a0833\],
+.theme-light .bg-\[\#0c123d\] {
+  background-color: var(--crm-input-bg) !important;
+  color: var(--crm-text-primary) !important;
+  border-color: var(--crm-border) !important;
+}
+
+/* ==========================================================================
+   SEMANTIC CRM CLASSES (APPLIED IN BOTH DARK & LIGHT MODES)
+   ========================================================================== */
+.crm-sidebar {
+  background-color: var(--crm-bg-sidebar);
+  border-color: var(--crm-border);
+  color: var(--crm-text-secondary);
+}
+
+.crm-col-1 {
+  background-color: var(--crm-bg-col1);
+  border-color: var(--crm-border);
+}
+
+.crm-col-2 {
+  background-color: var(--crm-bg-col2);
+}
+
+.crm-col-3 {
+  background-color: var(--crm-bg-col3);
+  border-color: var(--crm-border);
+}
+
+.crm-header {
+  background-color: var(--crm-header-bg);
+  border-color: var(--crm-border);
+}
+
+.crm-banner {
+  background: var(--crm-banner-bg);
+  border-color: var(--crm-border);
+  color: var(--crm-banner-text);
+}
+
+.crm-text-primary {
+  color: var(--crm-text-primary);
+}
+
+.crm-text-secondary {
+  color: var(--crm-text-secondary);
+}
+
+.crm-text-muted {
+  color: var(--crm-text-muted);
+}
+
+.crm-input {
+  background-color: var(--crm-input-bg) !important;
+  border: 1px solid var(--crm-border) !important;
+  color: var(--crm-text-primary) !important;
+}
+
+.crm-input::placeholder {
+  color: var(--crm-text-muted) !important;
+}
+
+.crm-conv-item {
+  border-bottom: 1px solid var(--crm-border-subtle);
+  transition: all 0.2s ease;
+}
+
+.crm-conv-item:hover {
+  background-color: var(--crm-item-hover);
+}
+
+.crm-conv-item-selected {
+  background: var(--crm-item-active-bg) !important;
+  border-left: 3px solid var(--crm-item-active-border) !important;
+}
+
+.crm-bubble-customer {
+  background-color: var(--crm-bubble-customer-bg);
+  border: 1px solid var(--crm-bubble-customer-border);
+  color: var(--crm-bubble-customer-text);
+}
+
+.crm-bubble-ai {
+  background: var(--crm-bubble-ai-bg);
+  border: 1px solid var(--crm-bubble-ai-border);
+  color: var(--crm-bubble-ai-text);
+}
+
+.crm-chat-box {
+  background-color: var(--crm-input-box-bg);
+  border-color: var(--crm-border);
+}
+
+.crm-pill-toggle {
+  background-color: var(--crm-input-bg);
+  border: 1px solid var(--crm-border);
+  color: var(--crm-text-primary);
+}
+
+.crm-subagent-btn {
+  background-color: var(--crm-input-bg);
+  border: 1px solid var(--crm-border-accent);
+  color: var(--crm-text-primary);
+}
+
+.crm-simulate-btn {
+  background-color: var(--crm-input-bg);
+  border: 1px solid var(--crm-border-accent);
+  color: var(--crm-text-primary);
+}
+
+.crm-btn-ai-suggest {
+  background-color: var(--crm-btn-ai-suggest-bg);
+  border: 1px solid var(--crm-btn-ai-suggest-border);
+  color: var(--crm-btn-ai-suggest-text);
+}
+
+.crm-btn-ai-auto {
+  background-color: var(--crm-btn-ai-auto-bg);
+  border: 1px solid var(--crm-btn-ai-auto-border);
+  color: var(--crm-btn-ai-auto-text);
+}

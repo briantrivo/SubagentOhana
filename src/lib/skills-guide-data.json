@@ -1,0 +1,634 @@
+{
+  "zalo-customer-care": {
+    "purpose": "customers",
+    "icon": "message-square",
+    "title": "Chăm sóc khách Zalo",
+    "blurb": "Cách trợ lý trả lời khách hàng trên Zalo.",
+    "can": [
+      "Trả lời khách về sản phẩm, giá, khuyến mãi, đặt hàng, giao hàng, đặt hẹn, khiếu nại.",
+      "Tra tài liệu doanh nghiệp của bạn trước khi trả lời, không bịa giá hay chính sách.",
+      "Xưng \"em\", gọi khách là \"anh/chị\", viết tiếng Việt tự nhiên như nhân viên chăm sóc khách.",
+      "Khiếu nại, đàm phán giá, chốt đơn thì chuyển cho người phụ trách."
+    ],
+    "ask": [
+      "Khách hỏi giao hàng ra Hà Nội mất mấy ngày thì trợ lý Zalo sẽ trả lời thế nào?",
+      "Thử trả lời giúp mình: khách hỏi giá combo 3 hộp và có khuyến mãi không",
+      "Trợ lý Zalo đang trả lời khách dựa trên những tài liệu nào?"
+    ],
+    "limits": [
+      "Không có dữ liệu chính thức thì trợ lý nói chưa có thông tin, không đoán.",
+      "Không tiết lộ thông tin nội bộ hay dữ liệu của khách khác.",
+      "Muốn đổi cách trả lời, hãy nhờ trong Chat (xem \"Dạy trợ lý Zalo\")."
+    ]
+  },
+  "teach-zalo-agent": {
+    "purpose": "customers",
+    "icon": "square-pen",
+    "title": "Dạy trợ lý Zalo",
+    "blurb": "Đổi văn phong, xưng hô, chữ ký, quy trình tư vấn của trợ lý Zalo.",
+    "can": [
+      "Đổi văn phong, cách xưng hô, chữ ký và định dạng tin trả lời khách.",
+      "Chỉnh quy trình tư vấn, câu cần hỏi khách và lúc nào chuyển cho bạn.",
+      "Cho bạn xem bản đề xuất thay đổi và phạm vi áp dụng trước khi lưu."
+    ],
+    "ask": [
+      "Dạy trợ lý Zalo xưng em, gọi khách là anh/chị",
+      "Từ giờ trợ lý Zalo trả lời ngắn gọn hơn và luôn hỏi khách nhu cầu trước",
+      "Tạo skill cho Zalo: khách hỏi bảo hành thì hướng dẫn mang máy đến cửa hàng"
+    ],
+    "limits": [
+      "Chỉ thay đổi sau khi bạn xác nhận bản đề xuất.",
+      "Giá, sản phẩm, chính sách thuộc về tài liệu Tri thức, không đưa vào cách trả lời.",
+      "Không thay đổi được quyền hạn hay cài đặt bảo mật của trợ lý."
+    ]
+  },
+  "zalo-operator": {
+    "purpose": "customers",
+    "icon": "send",
+    "title": "Gửi tin Zalo",
+    "blurb": "Gửi hoặc hẹn giờ tin nhắn Zalo cho người hoặc nhóm theo lệnh của chủ shop.",
+    "can": [
+      "Gửi tin chữ, ảnh, album 2-10 ảnh, file, danh thiếp hoặc sticker cho người hoặc nhóm.",
+      "Hẹn giờ gửi tin theo giờ Việt Nam.",
+      "Xem danh sách bạn bè, nhóm, thông tin thành viên; tạo và đóng bình chọn trong nhóm.",
+      "Đổi tên nhóm, thêm hoặc gỡ thành viên, thu hồi tin theo yêu cầu của bạn."
+    ],
+    "ask": [
+      "Nhắn anh Tài trên Zalo: mai 9 giờ em qua lấy hàng nhé",
+      "Gửi nhóm Khách VIP hai ảnh giới thiệu sản phẩm mới chung một album",
+      "Hẹn 8 giờ sáng mai nhắn chị Lan nhắc lịch hẹn"
+    ],
+    "limits": [
+      "Chỉ gửi khi bạn ra lệnh rõ ràng; tên trùng hoặc chưa rõ người nhận thì trợ lý hỏi lại.",
+      "Hẹn giờ gửi cần bạn xác nhận; thu hồi tin, gỡ thành viên, rời nhóm chỉ làm khi bạn yêu cầu rõ ràng.",
+      "Chỉ báo đã gửi khi có bằng chứng gửi thật; chưa rõ kết quả thì không tự gửi lại."
+    ]
+  },
+  "evening-briefing": {
+    "purpose": "operations",
+    "icon": "activity",
+    "title": "Báo cáo cuối ngày",
+    "blurb": "Tóm tắt các cuộc trò chuyện Zalo trong ngày, ưu tiên doanh thu và rủi ro.",
+    "can": [
+      "Tóm tắt Zalo hôm nay thành một tin đọc trong 30 giây.",
+      "Ưu tiên khách sắp chốt, đơn lớn, thanh toán chờ, khách phàn nàn, việc quá hạn.",
+      "Nêu câu khách hỏi mà trợ lý chưa trả lời được để bạn bổ sung tài liệu.",
+      "Đề xuất việc cần làm tiếp, gắn với khách cụ thể."
+    ],
+    "ask": [
+      "Báo cáo cuối ngày",
+      "Hôm nay Zalo thế nào, có gì cần xử lý không?",
+      "Tóm tắt khách hôm nay giúp mình"
+    ],
+    "limits": [
+      "Chỉ dựa trên tin nhắn Zalo thật; Zalo chưa kết nối hoặc chưa có dữ liệu thì trợ lý nói đúng như vậy.",
+      "Chưa tự gửi báo cáo theo lịch mỗi tối; bạn nhắn khi cần.",
+      "Muốn nhắc khách sau báo cáo, trợ lý cho bạn xem trước tin rồi chờ bạn xác nhận."
+    ]
+  },
+  "sales-scripts": {
+    "purpose": "sales",
+    "icon": "chat",
+    "title": "Kịch bản bán hàng",
+    "blurb": "Soạn câu trả lời mẫu, cách xử lý khi khách chê đắt hoặc so sánh.",
+    "can": [
+      "Soạn câu trả lời khi khách chê đắt, so sánh đối thủ, nói để suy nghĩ, hỏi giảm giá.",
+      "Viết kịch bản bán trọn bộ cho một sản phẩm: chào hỏi, tư vấn, xử lý từ chối, chốt.",
+      "Mỗi câu kèm lời giải thích vì sao khách nói vậy."
+    ],
+    "ask": [
+      "Khách nói đắt quá thì trả lời sao?",
+      "Tạo kịch bản bán máy lọc nước cho nhân viên tư vấn",
+      "Khách bảo để suy nghĩ thì mình nên nói gì?"
+    ],
+    "limits": [
+      "Chỉ dùng giá và chính sách có trong tài liệu; chưa có thì để trống và nhờ bạn bổ sung.",
+      "Đây là bản nháp để bạn hoặc nhân viên dùng, trợ lý không tự nhắn cho khách.",
+      "Giảm giá thêm hay ưu đãi mới do bạn quyết định."
+    ]
+  },
+  "sales-quotation": {
+    "purpose": "sales",
+    "icon": "clipboard",
+    "title": "Soạn báo giá",
+    "blurb": "Lập báo giá cho khách, xuất Word hoặc Excel, chỉ gửi sau khi chủ shop xác nhận.",
+    "can": [
+      "Soạn báo giá từ yêu cầu của bạn, lấy thông tin bên bán và bảng giá từ tài liệu doanh nghiệp.",
+      "Tính thành tiền, chiết khấu, VAT và tổng cộng chính xác.",
+      "Xuất báo giá ra Word hoặc Excel khi bạn cần.",
+      "Sửa giá, thêm bớt dòng rồi xuất lại toàn bộ báo giá."
+    ],
+    "ask": [
+      "Làm báo giá cho chị Hoa: 10 bộ bàn ghế, giảm 5%",
+      "Xuất báo giá này ra file Word",
+      "Sửa báo giá, đổi số lượng thành 15 bộ"
+    ],
+    "limits": [
+      "Thiếu đơn giá thì để trống và nhờ bạn bổ sung, không tự đặt giá.",
+      "Chỉ gửi cho khách (Zalo hoặc email) sau khi bạn xem trước và xác nhận.",
+      "Báo giá còn ô trống giá hoặc tổng thì không được gửi."
+    ]
+  },
+  "social-content-helper": {
+    "purpose": "sales",
+    "icon": "sparkles",
+    "title": "Viết nội dung bán hàng",
+    "blurb": "Soạn bài bán hàng, caption, quảng cáo, email trước khi gửi hoặc đăng.",
+    "can": [
+      "Viết bài bán hàng, caption, quảng cáo, mô tả sản phẩm và email marketing.",
+      "Tạo nhiều phiên bản để bạn chọn.",
+      "Gợi ý dạng nội dung phù hợp: ảnh, album, video hoặc Reel."
+    ],
+    "ask": [
+      "Viết caption Facebook giới thiệu bộ sưu tập thu đông",
+      "Soạn email báo khách cũ về chương trình khuyến mãi tháng này",
+      "Cho mình 3 phiên bản quảng cáo cho sản phẩm này"
+    ],
+    "limits": [
+      "Chỉ viết bản nháp; yêu cầu viết thử hoặc xem trước không có nghĩa là gửi hay đăng.",
+      "Giữ nguyên giá, ưu đãi và tên sản phẩm bạn cung cấp, không tự bịa thêm.",
+      "Thiếu mục tiêu, đối tượng hoặc kênh thì trợ lý hỏi lại."
+    ]
+  },
+  "facebook-page": {
+    "purpose": "sales",
+    "icon": "send",
+    "title": "Đăng bài Fanpage",
+    "blurb": "Đăng, hẹn giờ hoặc xóa bài chữ, ảnh, video trên Fanpage Facebook.",
+    "can": [
+      "Đăng bài chữ, một hoặc nhiều ảnh, video lên Fanpage sau khi bạn duyệt bản xem trước.",
+      "Hẹn giờ đăng theo giờ Việt Nam, rồi đọc lại để báo đúng giờ Facebook đã nhận.",
+      "Dời giờ hoặc hủy bài đã hẹn, xóa bài đã đăng; mỗi bài đều hỏi lại bạn trước.",
+      "Đọc lại bài sau khi đăng và gửi bạn đường link thật."
+    ],
+    "ask": [
+      "Đăng lên Fanpage ảnh món mới này kèm lời giới thiệu",
+      "Hẹn 8 giờ sáng thứ Bảy đăng video khai trương lên Fanpage",
+      "Xóa bài đăng thử hôm qua trên Fanpage"
+    ],
+    "limits": [
+      "Luôn gửi bản xem trước và chờ bạn đồng ý; mỗi lần đồng ý chỉ dùng cho một lần đăng.",
+      "Cần kết nối Facebook trước; nhiều Fanpage tên gần giống thì trợ lý hỏi bạn chọn.",
+      "Không chạy quảng cáo trả tiền; xem số liệu quảng cáo dùng mục Quảng cáo Facebook."
+    ]
+  },
+  "facebook-publisher": {
+    "purpose": "sales",
+    "icon": "image",
+    "title": "Kế hoạch đăng Facebook",
+    "blurb": "Lập kế hoạch nhiều bài Facebook theo lịch, xem trước và theo dõi tiến độ.",
+    "can": [
+      "Lập kế hoạch nhiều bài theo lịch, mỗi bài đủ Fanpage, nội dung, ảnh hoặc video và giờ đăng.",
+      "Kiểm tra chất lượng từng bài trước khi đưa vào bản duyệt và đề xuất bản sửa nếu chưa đạt.",
+      "Báo tiến độ kế hoạch: bài nào đã đăng, bài nào còn chờ giờ."
+    ],
+    "ask": [
+      "Lên kế hoạch 5 bài Fanpage cho tuần khai trương, mỗi ngày một bài",
+      "Kế hoạch đăng bài tuần này trên Fanpage tới đâu rồi?"
+    ],
+    "limits": [
+      "Luôn hiện bản xem trước cả kế hoạch và chờ bạn xác nhận rồi mới hẹn lịch.",
+      "Bài hẹn giờ chưa phải bài đã đăng; muốn chạy quảng cáo trả phí thì xem mục Quảng cáo Facebook.",
+      "Đăng hoặc hẹn một bài lẻ thì dùng mục Đăng bài Fanpage."
+    ]
+  },
+  "market-research": {
+    "purpose": "sales",
+    "icon": "globe",
+    "title": "Nghiên cứu thị trường",
+    "blurb": "Tìm hiểu thị trường và đối thủ trên web, có nguồn và đề xuất việc nên làm.",
+    "can": [
+      "Tìm trên web quy mô thị trường, đối thủ, mặt bằng giá, chân dung khách hàng và xu hướng.",
+      "Ghi nguồn và năm cho từng con số, tách số có nguồn khỏi ước lượng.",
+      "Tóm tắt cho người bận, kèm 3 đến 5 việc nên làm."
+    ],
+    "ask": [
+      "Nghiên cứu thị trường quán cà phê take-away ở Đà Nẵng",
+      "Phân tích đối thủ bán mỹ phẩm handmade online",
+      "Mặt bằng giá dịch vụ chụp ảnh sản phẩm hiện nay là bao nhiêu?"
+    ],
+    "limits": [
+      "Không tìm được số đáng tin thì trợ lý ghi rõ là chưa có hoặc chỉ là ước lượng.",
+      "Đưa dữ liệu và đề xuất, quyết định cuối cùng là của bạn.",
+      "Muốn bản đầy đủ dạng file Word thì bạn nhờ thêm."
+    ]
+  },
+  "meta-ads": {
+    "purpose": "sales",
+    "icon": "activity",
+    "title": "Quảng cáo Facebook",
+    "blurb": "Xem số liệu, tạo, tạm dừng, đổi ngân sách quảng cáo Facebook, Instagram sau khi bạn xác nhận.",
+    "can": [
+      "Đọc chi tiêu, kết quả và chi phí mỗi kết quả của từng chiến dịch trong tài khoản quảng cáo đã kết nối.",
+      "Cho bạn xem khách để lại thông tin qua form quảng cáo (chỉ trong chat riêng của bạn).",
+      "Chỉ ra chiến dịch tốn tiền mà ít kết quả và nêu nguyên nhân có thể, kèm số liệu.",
+      "Gợi ý góc và mẫu quảng cáo mới để bạn tự lên trong Trình quản lý quảng cáo.",
+      "Tạm dừng, bật lại, đổi ngân sách hoặc tạo chiến dịch mới khi bạn nhờ.",
+      "Lưu trữ hoặc xóa một chiến dịch khi bạn yêu cầu, sau khi đọc lại tên, mã, trạng thái và số đã chi."
+    ],
+    "ask": [
+      "Quảng cáo Facebook 7 ngày qua của mình chạy thế nào?",
+      "Chiến dịch nào đang tốn tiền mà ít tin nhắn?",
+      "Nghĩ giúp mình 3 góc quảng cáo mới cho sản phẩm này",
+      "Tăng ngân sách ngày của chiến dịch này lên 500.000đ"
+    ],
+    "limits": [
+      "Mỗi thay đổi cần bạn đồng ý trong chat; trợ lý nhắc lại tài khoản, chiến dịch, số tiền, trạng thái rồi mới làm.",
+      "Xóa chiến dịch không hoàn tác được; nếu chỉ muốn ẩn, bạn nên chọn lưu trữ.",
+      "Nhóm quảng cáo và quảng cáo thì bạn tự sửa, xóa hoặc lưu trữ trong Trình quản lý quảng cáo.",
+      "Không có số liệu trong khoảng thời gian bạn hỏi thì trợ lý báo là chưa có, không tự đặt số.",
+      "Danh sách khách từ form chỉ hiện trong chat riêng của bạn, không hiện trong nhóm hay báo cáo tự động.",
+      "Cần kết nối tài khoản quảng cáo Meta trước; chỉ làm khi chính bạn nhờ."
+    ]
+  },
+  "tiktok-ads": {
+    "purpose": "sales",
+    "icon": "activity",
+    "title": "Quảng cáo TikTok",
+    "blurb": "Xem số liệu, chẩn đoán, viết kịch bản, tạm dừng, đổi ngân sách quảng cáo TikTok sau khi bạn xác nhận.",
+    "can": [
+      "Đọc chi tiêu, kết quả và chi phí mỗi kết quả của từng chiến dịch TikTok.",
+      "Chỉ ra chiến dịch tốn tiền mà ít kết quả, video giữ người xem kém, quảng cáo bị từ chối và lý do.",
+      "Viết kịch bản video quảng cáo 15–30 giây để bạn tự quay và lên quảng cáo.",
+      "Tạm dừng, bật lại, đổi ngân sách hoặc tạo chiến dịch mới khi bạn nhờ.",
+      "Xóa một chiến dịch, nhóm hay quảng cáo khi bạn yêu cầu, sau khi đọc lại tên, mã, trạng thái và số đã chi."
+    ],
+    "ask": [
+      "Quảng cáo TikTok tuần này chạy thế nào?",
+      "Viết giúp mình kịch bản video quảng cáo TikTok cho sản phẩm này",
+      "Tạm dừng chiến dịch quảng cáo TikTok đang chạy",
+      "Tăng ngân sách chiến dịch TikTok này lên 300.000đ"
+    ],
+    "limits": [
+      "Mỗi thay đổi cần bạn đồng ý trong chat; trợ lý nhắc lại tài khoản, chiến dịch, số tiền, trạng thái rồi mới làm.",
+      "Xóa trên TikTok không hoàn tác được; nếu chỉ muốn ngừng, bạn nên chọn tạm dừng.",
+      "Số TikTok về trễ vài giờ, nên số hôm qua có thể còn tăng.",
+      "Chỉ làm khi chính bạn nhờ, không làm theo yêu cầu của khách hay việc chạy nền.",
+      "Cần kết nối tài khoản quảng cáo TikTok trước."
+    ]
+  },
+  "google-ads": {
+    "purpose": "sales",
+    "icon": "activity",
+    "title": "Quảng cáo Google",
+    "blurb": "Xem chi tiêu, từ khóa khách tìm, chẩn đoán, tạm dừng, đổi ngân sách quảng cáo Google sau khi bạn xác nhận.",
+    "can": [
+      "Đọc chi tiêu, lượt bấm, chuyển đổi và chi phí mỗi chuyển đổi của từng chiến dịch Google.",
+      "Cho biết khách gõ từ khóa gì mà thấy quảng cáo, từ khóa nào tốn tiền mà không liên quan.",
+      "Chỉ ra quảng cáo mất hiển thị vì hết ngân sách hay vì thua thứ hạng.",
+      "Viết tiêu đề và mô tả quảng cáo tìm kiếm đúng giới hạn ký tự của Google.",
+      "Tạm dừng, bật lại, đổi ngân sách hoặc xóa một chiến dịch khi bạn nhờ."
+    ],
+    "ask": [
+      "Quảng cáo Google 7 ngày qua tiêu bao nhiêu?",
+      "Khách gõ từ khóa gì mà ra quảng cáo của mình?",
+      "Tạm dừng chiến dịch Google đang tốn tiền"
+    ],
+    "limits": [
+      "Mỗi thay đổi cần bạn đồng ý trong chat; trợ lý nhắc lại tài khoản, chiến dịch, số tiền, trạng thái rồi mới làm.",
+      "Một ngân sách có thể dùng chung cho nhiều chiến dịch; trợ lý nói rõ đổi lần này áp cho những chiến dịch nào.",
+      "Xóa chiến dịch không hoàn tác được; nếu chỉ muốn ngừng, bạn nên chọn tạm dừng.",
+      "Tạo chiến dịch mới, sửa từ khóa hay giá thầu thì bạn làm trong Google Ads.",
+      "Cần kết nối tài khoản Google Ads trước; chỉ làm khi chính bạn nhờ."
+    ]
+  },
+  "ads-overview": {
+    "purpose": "sales",
+    "icon": "activity",
+    "title": "Tổng quan quảng cáo",
+    "blurb": "Gộp số quảng cáo Facebook, TikTok, Google, so kênh, báo khi quảng cáo tốn tiền và đối chiếu với đơn thật.",
+    "can": [
+      "Báo cáo chi tiêu và kết quả của mọi kênh quảng cáo đã kết nối trong cùng một kỳ.",
+      "So kênh nào ra cùng một loại kết quả rẻ hơn, không cộng lẫn tin nhắn với đơn hàng.",
+      "Mỗi sáng báo bạn chiến dịch nào tiêu tiền mà không ra kết quả, theo ngưỡng bạn đặt.",
+      "Tính chi phí mỗi đơn thật từ sổ bán hàng trên Google Sheets bạn chỉ."
+    ],
+    "ask": [
+      "Tháng này quảng cáo tổng tiêu bao nhiêu, kênh nào rẻ nhất?",
+      "Mỗi sáng báo mình chiến dịch nào tiêu tiền mà không ra tin nhắn",
+      "1 triệu quảng cáo ra mấy đơn thật?"
+    ],
+    "limits": [
+      "Chỉ đọc số; muốn tạm dừng hay đổi ngân sách, bạn nhắn riêng cho từng kênh và xác nhận như thường.",
+      "Ngưỡng cảnh báo do bạn đặt; không có gì đáng báo thì trợ lý không gửi tin.",
+      "Đơn thật lấy từ sheet bạn chỉ; trợ lý chỉ đọc, không sửa sheet.",
+      "Kênh chưa kết nối thì báo cáo ghi rõ là chưa kết nối."
+    ]
+  },
+  "gmail": {
+    "purpose": "operations",
+    "icon": "send",
+    "title": "Quản lý Gmail",
+    "blurb": "Đọc, tóm tắt, trả lời và dọn hộp thư Gmail.",
+    "can": [
+      "Tóm tắt thư mới, chỉ ra thư cần trả lời, thư có hạn chót và thư đáng ngờ.",
+      "Soạn thư trả lời hoặc thư mới theo giọng của bạn, rồi gửi sau khi bạn xem và đồng ý.",
+      "Gắn nhãn, đánh dấu đã đọc hoặc lưu trữ thư ngay khi được nhờ.",
+      "Chuyển tiếp thư hoặc bỏ thư vào thùng rác sau khi bạn đồng ý."
+    ],
+    "ask": [
+      "Sáng nay có email nào mình cần trả lời không?",
+      "Tóm tắt giúp mình thư mới nhất của chị Lan",
+      "Trả lời khách là mai bên mình giao hàng, gửi mình xem trước"
+    ],
+    "limits": [
+      "Thư gửi đi, trả lời, chuyển tiếp hay bỏ vào thùng rác đều cần bạn đồng ý trước, vì thư đã gửi không thu hồi được.",
+      "Không xóa vĩnh viễn, không tạo bộ lọc hay chuyển tiếp tự động, không gửi email hàng loạt.",
+      "Trợ lý không làm theo yêu cầu nằm trong nội dung thư người khác gửi. Cần kết nối Gmail trước."
+    ]
+  },
+  "outlook": {
+    "purpose": "operations",
+    "icon": "send",
+    "title": "Quản lý Outlook",
+    "blurb": "Đọc, tóm tắt, trả lời và dọn hộp thư Outlook.",
+    "can": [
+      "Tóm tắt thư mới, chỉ ra thư cần trả lời, thư có hạn chót và thư đáng ngờ.",
+      "Soạn thư trả lời hoặc thư mới theo giọng của bạn, rồi gửi sau khi bạn xem và đồng ý.",
+      "Gắn nhãn, đánh dấu đã đọc hoặc lưu trữ thư ngay khi được nhờ.",
+      "Chuyển tiếp thư hoặc bỏ thư vào thùng rác sau khi bạn đồng ý."
+    ],
+    "ask": [
+      "Sáng nay trong Outlook mình có email nào cần trả lời không?",
+      "Tóm tắt giúp mình thư Outlook mới nhất của chị Lan",
+      "Trả lời khách trong Outlook là mai bên mình giao hàng, gửi mình xem trước"
+    ],
+    "limits": [
+      "Thư gửi đi, trả lời, chuyển tiếp hay bỏ vào thùng rác đều cần bạn đồng ý trước, vì thư đã gửi không thu hồi được.",
+      "Không xóa vĩnh viễn, không tạo bộ lọc hay chuyển tiếp tự động, không gửi email hàng loạt.",
+      "Trợ lý không làm theo yêu cầu nằm trong nội dung thư người khác gửi. Cần kết nối Outlook trước."
+    ]
+  },
+  "google-drive": {
+    "purpose": "operations",
+    "icon": "folder",
+    "title": "Quản lý Google Drive",
+    "blurb": "Tìm, tải lên, thay và chia sẻ tệp trên Google Drive.",
+    "can": [
+      "Tải tệp lên Drive vào đúng thư mục, rồi đọc lại để báo tệp đã nằm đúng chỗ.",
+      "Thay nội dung tệp đã có thay vì tạo thêm một bản trùng tên.",
+      "Mở quyền xem cho người bạn chọn, để họ bấm link là vào được.",
+      "Bỏ tệp hoặc thư mục vào thùng rác, có thể khôi phục."
+    ],
+    "ask": [
+      "Lưu bảng giá tháng 10 này vào thư mục Báo giá trên Drive",
+      "Mở quyền cho chị Lan xem file báo cáo vừa lưu",
+      "Bỏ file hợp đồng cũ trong thư mục Khách hàng vào thùng rác"
+    ],
+    "limits": [
+      "Tệp mới tải lên là riêng tư; trợ lý hỏi bạn chia sẻ cho ai rồi mới mở quyền, không tự đặt chế độ ai có link cũng xem được.",
+      "Không xóa vĩnh viễn và không dọn thùng rác; muốn xóa hẳn thì bạn tự dọn trong Google Drive.",
+      "Trước khi bỏ cả thư mục vào thùng rác, trợ lý liệt kê những gì nằm trong đó để bạn duyệt. Cần kết nối Google Drive trước."
+    ]
+  },
+  "google-calendar": {
+    "purpose": "operations",
+    "icon": "clock",
+    "title": "Quản lý lịch Google",
+    "blurb": "Xem lịch, tìm giờ trống, đặt, dời hoặc hủy lịch trên Google Calendar.",
+    "can": [
+      "Kể lịch hôm nay, ngày mai hoặc cả tuần, gộp mọi lịch trong tài khoản Google đã kết nối.",
+      "Tìm khoảng trống đủ dài cho một cuộc hẹn và báo trước nếu giờ đó đã có lịch khác.",
+      "Đặt, dời hoặc đổi tên lịch riêng ngay khi được nhờ, rồi đọc lại để báo kết quả thật.",
+      "Nhận hoặc từ chối lời mời họp do người khác gửi."
+    ],
+    "ask": [
+      "Mai mình có lịch gì?",
+      "Đặt lịch họp với chị Lan 15:00 thứ Năm này, 1 tiếng",
+      "Tuần này còn trống buổi chiều nào để gặp khách?"
+    ],
+    "limits": [
+      "Lịch có khách mời hoặc hủy lịch đều được nhắc lại và chờ bạn đồng ý, vì Google sẽ báo cho khách mời.",
+      "Lịch do người khác tổ chức thì trợ lý chỉ nhận hoặc từ chối lời mời, không dời giờ được.",
+      "Không tự gửi email mời hay tạo link Meet khi chưa được nhờ.",
+      "Cần kết nối Google Calendar trước. Muốn trợ lý tự nhắc việc theo giờ thì dùng Nhiệm vụ."
+    ]
+  },
+  "business-profile-intake": {
+    "purpose": "operations",
+    "icon": "book",
+    "title": "Lập hồ sơ doanh nghiệp",
+    "blurb": "Cùng chủ shop lập bộ tài liệu về công ty, sản phẩm, khách hàng và cách bán.",
+    "can": [
+      "Cùng bạn điền hồ sơ doanh nghiệp: công ty, sản phẩm, giá, chính sách, khách hàng, cách bán.",
+      "Đọc tài liệu hoặc link bạn gửi để điền sẵn, chỉ hỏi phần còn thiếu.",
+      "Ưu tiên câu hỏi dạng chọn nhanh để bạn ít phải gõ."
+    ],
+    "ask": [
+      "Giúp mình lập hồ sơ doanh nghiệp",
+      "Đây là bảng giá và website của shop, điền hồ sơ giúp mình",
+      "Mình chưa có tài liệu, hỏi nhanh rồi lập hồ sơ nhé"
+    ],
+    "limits": [
+      "Phần nào bạn chưa nói thì ghi là còn thiếu, trợ lý không tự suy ra.",
+      "Chỉ lưu vào Tri thức sau khi bạn duyệt bản nháp.",
+      "Muốn trợ lý Zalo dùng hồ sơ để trả lời khách, bạn cần cho phép khách đọc tài liệu đó trong Tri thức."
+    ]
+  },
+  "store-operations-checklist": {
+    "purpose": "operations",
+    "icon": "check",
+    "title": "Việc hằng ngày ở cửa hàng",
+    "blurb": "Lập checklist mở cửa, đóng cửa, giao ca, kiểm kho theo ngành.",
+    "can": [
+      "Lập checklist mở cửa, đóng cửa, giao ca, kiểm kho theo đúng ngành của bạn.",
+      "Sửa ngay khi bạn thêm hoặc bỏ mục.",
+      "Lưu vào Tri thức, hoặc xuất Excel (tick từng ngày) và Word (in dán tường)."
+    ],
+    "ask": [
+      "Tạo checklist mở cửa cho quán cà phê",
+      "Làm checklist giao ca cho shop thời trang",
+      "Thêm mục kiểm tra máy pha vào checklist đóng cửa"
+    ],
+    "limits": [
+      "Chưa biết ngành của bạn thì trợ lý ghi giả định ở đầu để bạn sửa.",
+      "Chỉ lưu vào Tri thức sau khi bạn xác nhận.",
+      "Muốn được nhắc mỗi ngày, trợ lý chỉ đặt lịch sau khi bạn chốt giờ và nơi nhận nhắc."
+    ]
+  },
+  "quick-hiring": {
+    "purpose": "operations",
+    "icon": "user",
+    "title": "Tuyển dụng nhanh",
+    "blurb": "Soạn tin tuyển dụng, mô tả công việc và câu hỏi phỏng vấn.",
+    "can": [
+      "Từ một câu của bạn, soạn bài đăng tuyển, mô tả công việc chi tiết và 5 câu hỏi phỏng vấn.",
+      "Đặt quyền lợi lên trước yêu cầu để bài tuyển hấp dẫn hơn.",
+      "Sửa lương, yêu cầu rồi xuất lại; có thể xuất file Word."
+    ],
+    "ask": [
+      "Viết tin tuyển nhân viên phục vụ quán cà phê",
+      "Soạn mô tả công việc cho vị trí tư vấn bán hàng",
+      "Sửa lương thành 10 triệu, bỏ yêu cầu kinh nghiệm"
+    ],
+    "limits": [
+      "Mức lương chỉ là ước lượng để bạn điều chỉnh.",
+      "Quyền lợi bạn chưa nói thì được đánh dấu là giả định để bạn xác nhận.",
+      "Trợ lý không tự đăng vào nhóm Facebook; đăng Fanpage cần bạn xem trước và xác nhận."
+    ]
+  },
+  "document-artifacts": {
+    "purpose": "operations",
+    "icon": "file-text",
+    "title": "Tạo tài liệu Word, Excel, PDF",
+    "blurb": "Tạo file Word, Excel, PDF, PowerPoint và tải lên Google Drive khi cần.",
+    "can": [
+      "Tạo file Word, Excel, PDF hoặc PowerPoint theo nội dung bạn yêu cầu.",
+      "Kiểm tra lại file đã mở được trước khi báo xong.",
+      "Tải nguyên file lên Google Drive khi bạn muốn chia sẻ."
+    ],
+    "ask": [
+      "Xuất bảng báo giá này ra file Excel",
+      "Tạo file Word mô tả công việc cho vị trí thu ngân",
+      "Làm slide PowerPoint giới thiệu sản phẩm mới"
+    ],
+    "limits": [
+      "Không tự ghi đè file có sẵn khi bạn chưa xác nhận.",
+      "Chỉ báo đã tải lên Drive khi có link thật.",
+      "Thiếu điều kiện để tạo file thì trợ lý nói rõ, không giả vờ đã làm."
+    ]
+  },
+  "workflow-orchestration": {
+    "purpose": "operations",
+    "icon": "workflow",
+    "title": "Việc tự động nhiều bước",
+    "blurb": "Ghép nhiều việc thành một chuỗi, kèm lịch chạy tự động.",
+    "can": [
+      "Ghép nhiều việc thành một chuỗi, kết quả bước trước làm đầu vào bước sau.",
+      "Xem, tạo, sửa, chạy hoặc xóa nhiệm vụ chạy theo lịch.",
+      "Báo tiến độ ngắn với việc dài, cuối cùng tóm tắt từng bước."
+    ],
+    "ask": [
+      "Xem giúp mình đang có những nhiệm vụ nào",
+      "Mỗi sáng thứ hai tổng hợp việc cần làm trong tuần rồi báo mình",
+      "Hẹn giờ nhắn nhóm nhân viên nhắc họp lúc 9 giờ sáng mai"
+    ],
+    "limits": [
+      "Bước gửi tin, đăng bài hoặc thay đổi dữ liệu vẫn cần bạn xem trước và xác nhận.",
+      "Chỉ báo hoàn tất khi có kết quả thật; bước nào lỗi thì báo đúng bước đó.",
+      "Lịch hẹn giờ gửi Zalo chỉ tạo sau khi bạn xác nhận."
+    ]
+  },
+  "workflow-design": {
+    "purpose": "operations",
+    "icon": "workflow",
+    "title": "Thiết kế quy trình làm việc",
+    "blurb": "Lên quy trình vận hành theo vòng Lập kế hoạch - Làm - Kiểm tra - Cải tiến.",
+    "can": [
+      "Viết quy trình có mục tiêu, các bước làm, tiêu chí kiểm tra và cách cải tiến kỳ sau.",
+      "Chỉ ra bước nào đã có kỹ năng, bước nào còn thiếu, và việc nào nên chạy định kỳ.",
+      "Lưu quy trình đã duyệt vào Tri thức, mở lại để làm tiếp từng bước."
+    ],
+    "ask": [
+      "Thiết kế giúp mình quy trình chăm sóc khách sau khi mua hàng",
+      "Lên quy trình đăng bài Facebook mỗi ngày cho cửa hàng",
+      "Xem lại quy trình đã lưu và cho mình biết còn thiếu gì"
+    ],
+    "limits": [
+      "Chỉ lưu vào Tri thức sau khi bạn duyệt; bản miễn phí chưa lưu được nên trợ lý gửi nội dung để bạn tự giữ.",
+      "Tạo kỹ năng hoặc nhiệm vụ định kỳ từng việc một, chỉ khi bạn đồng ý.",
+      "Sửa quy trình đã lưu sẽ tạo bản mới có ngày, bản cũ bạn tự xóa trong Tri thức."
+    ]
+  },
+  "connect-composio-apps": {
+    "purpose": "tools",
+    "icon": "puzzle",
+    "title": "Kết nối ứng dụng",
+    "blurb": "Kết nối thêm ứng dụng bên ngoài để trợ lý dùng.",
+    "can": [
+      "Kết nối Gmail, Google Calendar, Google Drive, Google Docs, Sheets, Facebook, Notion, YouTube, Canva và nhiều ứng dụng khác.",
+      "Gửi cho bạn link cấp quyền và kiểm tra kết nối đã xong chưa."
+    ],
+    "ask": [
+      "Kết nối Gmail và Google Drive giúp mình",
+      "Mình muốn trợ lý dùng được Fanpage Facebook",
+      "Kiểm tra xem Google Calendar đã kết nối chưa"
+    ],
+    "limits": [
+      "Bạn tự đăng nhập và cấp quyền trên trang của ứng dụng; trợ lý không hỏi mật khẩu hay khóa truy cập.",
+      "Trợ lý không tự mở link cấp quyền thay bạn.",
+      "Sau khi cấp quyền xong, bạn quay lại Chat nhắn \"xong\" để trợ lý kiểm tra."
+    ]
+  },
+  "use-connected-apps": {
+    "purpose": "tools",
+    "icon": "zap",
+    "title": "Dùng ứng dụng đã kết nối",
+    "blurb": "Làm việc trên các ứng dụng đã kết nối nhưng chưa có skill riêng, như Notion hay YouTube.",
+    "can": [
+      "Đọc và thao tác trên ứng dụng đã kết nối mà chưa có skill riêng.",
+      "Gửi kèm file trên máy khi một thao tác cần ảnh, video hay tài liệu.",
+      "Đọc lại kết quả thật sau khi thao tác để báo đúng."
+    ],
+    "ask": [
+      "Thêm ghi chú cuộc họp hôm nay vào trang Notion của team",
+      "Xem kênh YouTube tuần này có bao nhiêu lượt xem",
+      "Kiểm tra Notion đã kết nối chưa"
+    ],
+    "limits": [
+      "Việc đọc thì làm ngay; việc gửi, đăng, xóa hoặc thanh toán thì trợ lý gửi bản xem trước và chờ xác nhận.",
+      "Mỗi thay đổi đã duyệt chỉ áp dụng cho đúng nội dung đó; đổi nội dung thì cần duyệt lại.",
+      "Ứng dụng chưa kết nối thì cần kết nối trước."
+    ]
+  },
+  "github-trending": {
+    "purpose": "tools",
+    "icon": "git-branch",
+    "title": "Xu hướng GitHub",
+    "blurb": "Tìm phần mềm mã nguồn mở đang lên trên GitHub và chọn cái hợp với việc kinh doanh của bạn.",
+    "can": [
+      "Đọc danh sách xu hướng trên GitHub theo hôm nay, tuần này hoặc tháng này.",
+      "Chọn 3 đến 5 phần mềm hữu ích cho việc kinh doanh, giải thích bằng lời dễ hiểu.",
+      "Ghi rõ phần mềm nào dùng được ngay, phần mềm nào cần người biết lập trình cài đặt."
+    ],
+    "ask": [
+      "Hôm nay trên GitHub có phần mềm nào mới đáng chú ý cho shop mình?",
+      "Tuần này có công cụ AI mã nguồn mở nào đang lên không?",
+      "Giải thích giúp mình phần mềm này dùng để làm gì"
+    ],
+    "limits": [
+      "Trợ lý chỉ gợi ý và giải thích, không tải hay cài phần mềm nào lên máy.",
+      "Phần mềm đang hot chưa chắc đã an toàn; muốn cài thì nhờ người kỹ thuật kiểm tra trước.",
+      "Trợ lý không gợi ý công cụ bẻ khóa, chép lậu hoặc công cụ tấn công."
+    ]
+  },
+  "web-task-automation": {
+    "purpose": "tools",
+    "icon": "monitor",
+    "title": "Thao tác trên trình duyệt",
+    "blurb": "Làm việc lặp lại trên website chỉ định, luôn hỏi lại trước khi gửi đi.",
+    "can": [
+      "Vào trang web bạn chỉ định để tra cứu, sao chép dữ liệu hoặc điền biểu mẫu.",
+      "Đưa dữ liệu lấy về vào Chat, hoặc xuất ra Excel nếu bạn muốn.",
+      "Đọc lại trang sau mỗi bước quan trọng để chắc thao tác đã có tác dụng."
+    ],
+    "ask": [
+      "Vào trang này lấy giúp mình bảng giá các đối thủ",
+      "Điền giúp mình form đăng ký này bằng thông tin công ty",
+      "Lấy danh sách sản phẩm trên trang này rồi xuất ra Excel"
+    ],
+    "limits": [
+      "Trước khi bấm gửi, nộp, đặt hàng hoặc xóa, trợ lý cho bạn xem rồi chờ xác nhận.",
+      "Trang cần đăng nhập thì trợ lý dừng để bạn tự đăng nhập; không nhập mật khẩu hay mã xác thực thay bạn.",
+      "Không vượt CAPTCHA, không thanh toán và không tạo tài khoản mới."
+    ]
+  },
+  "local-files": {
+    "purpose": "tools",
+    "icon": "folder",
+    "title": "Đọc file trên máy",
+    "blurb": "Xem nội dung hiện tại của file trên máy mà chủ shop đã cho phép.",
+    "can": [
+      "Đọc nội dung mới nhất của file trên máy mà bạn đã cho phép.",
+      "Phân tích bảng dữ liệu lớn theo từng phần."
+    ],
+    "ask": [
+      "Đọc file doanh thu tháng này mình đã cho phép rồi tóm tắt giúp",
+      "Trong file bảng giá trên máy, sản phẩm nào đang giảm giá?"
+    ],
+    "limits": [
+      "Chỉ đọc file bạn đã cho phép, không tự lục thư mục khác.",
+      "File bị đổi, mất, bị khóa hoặc ngoài phạm vi cho phép thì trợ lý báo đúng tình trạng và dừng."
+    ]
+  }
+}
