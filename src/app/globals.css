@@ -245,12 +245,15 @@ body.theme-light {
   color: var(--crm-text-secondary) !important;
 }
 
-.theme-light .bg-\[\#070b34\],
-.theme-light .bg-\[\#030622\],
-.theme-light .bg-\[\#02062a\],
-.theme-light .bg-\[\#080d38\],
-.theme-light .bg-\[\#1a0833\],
-.theme-light .bg-\[\#0c123d\] {
+.theme-light [class*="bg-[#070b34]"],
+.theme-light [class*="bg-[#030622]"],
+.theme-light [class*="bg-[#02062a]"],
+.theme-light [class*="bg-[#080d38]"],
+.theme-light [class*="bg-[#1a0833]"],
+.theme-light [class*="bg-[#1b0833]"],
+.theme-light [class*="bg-[#0c123d]"],
+.theme-light [class*="bg-[#0b1640]"],
+.theme-light [class*="bg-[#0c1a40]"] {
   background-color: var(--crm-input-bg) !important;
   color: var(--crm-text-primary) !important;
   border-color: var(--crm-border) !important;
