@@ -97,13 +97,53 @@ export default function KnowledgePage() {
 
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  // Fetch knowledge from API
+  const STORAGE_KEY = 'subagent_crm_knowledge_v1';
+
+  // Persist items to state and localStorage
+  const updateItemsAndPersist = (newItems: KnowledgeItem[]) => {
+    setItems(newItems);
+    try {
+      if (typeof window !== 'undefined') {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(newItems));
+      }
+    } catch (e) {
+      console.warn('LocalStorage error:', e);
+    }
+  };
+
+  // Fetch knowledge from API & merge with localStorage
   const fetchKnowledge = async () => {
+    // 1. Read from local storage first for instant load
+    let localItems: KnowledgeItem[] = [];
+    if (typeof window !== 'undefined') {
+      try {
+        const cached = localStorage.getItem(STORAGE_KEY);
+        if (cached) {
+          const parsed = JSON.parse(cached);
+          if (Array.isArray(parsed) && parsed.length > 0) {
+            localItems = parsed;
+            setItems(parsed);
+          }
+        }
+      } catch (e) {
+        console.error(e);
+      }
+    }
+
+    // 2. Fetch from server API
     try {
       const res = await fetch('/api/knowledge');
       const json = await res.json();
       if (json.success && Array.isArray(json.data) && json.data.length > 0) {
-        setItems(json.data);
+        // Merge: keep local user additions while having server items
+        const serverMap = new Map(json.data.map((item: KnowledgeItem) => [item.id, item]));
+        const merged = [...json.data];
+        for (const loc of localItems) {
+          if (!serverMap.has(loc.id)) {
+            merged.unshift(loc);
+          }
+        }
+        updateItemsAndPersist(merged);
       }
     } catch (e) {
       console.error(e);
@@ -116,7 +156,7 @@ export default function KnowledgePage() {
 
   const showToast = (msg: string) => {
     setToastMessage(msg);
-    setTimeout(() => setToastMessage(null), 3000);
+    setTimeout(() => setToastMessage(null), 3500);
   };
 
   // Handle Manual Addition
@@ -127,13 +167,17 @@ export default function KnowledgePage() {
       return;
     }
 
+    const targetCategory = newCategory;
+
     const payload = {
       title: newTitle.trim(),
       content: newContent.trim(),
-      category: newCategory,
+      category: targetCategory,
       fileName: attachedFileName || undefined,
       fileSize: attachedFileSize || undefined
     };
+
+    let savedItem: KnowledgeItem | null = null;
 
     try {
       const res = await fetch('/api/knowledge', {
@@ -142,28 +186,27 @@ export default function KnowledgePage() {
         body: JSON.stringify(payload)
       });
       const data = await res.json();
-      if (data.success) {
-        setItems([data.data, ...items]);
-        showToast(`Đã thêm tài liệu vào danh mục "${newCategory}"`);
-      } else {
-        // Fallback local state
-        const localItem: KnowledgeItem = {
-          id: 'k-' + Date.now(),
-          ...payload,
-          updatedAt: new Date().toLocaleDateString('vi-VN')
-        };
-        setItems([localItem, ...items]);
-        showToast(`Đã lưu tài liệu vào danh mục "${newCategory}"`);
+      if (data.success && data.data) {
+        savedItem = data.data;
       }
-    } catch {
-      const localItem: KnowledgeItem = {
+    } catch (err) {
+      console.warn('API save error, using local fallback', err);
+    }
+
+    if (!savedItem) {
+      savedItem = {
         id: 'k-' + Date.now(),
         ...payload,
         updatedAt: new Date().toLocaleDateString('vi-VN')
       };
-      setItems([localItem, ...items]);
-      showToast(`Đã lưu tài liệu vào danh mục "${newCategory}"`);
     }
+
+    const updated = [savedItem, ...items.filter(i => i.id !== savedItem!.id)];
+    updateItemsAndPersist(updated);
+
+    // Switch view to the category of the newly saved item so user immediately sees it
+    setActiveTab(targetCategory);
+    showToast(`Đã lưu tài liệu vào danh mục "${targetCategory}" và mở tab xem ngay!`);
 
     setNewTitle('');
     setNewContent('');
@@ -176,6 +219,11 @@ export default function KnowledgePage() {
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
+
+    // Auto set category to current active tab if viewing a specific category
+    if (activeTab !== 'all') {
+      setNewCategory(activeTab);
+    }
 
     const fileName = file.name;
     const fileSize = (file.size / 1024).toFixed(1) + ' KB';
@@ -204,7 +252,10 @@ export default function KnowledgePage() {
       setIsUploading(false);
     }
 
-    showToast(`Đã tải tệp ${fileName}. Vui lòng chọn danh mục và lưu lại.`);
+    // Reset input value so re-selecting the same file will trigger onChange
+    e.target.value = '';
+
+    showToast(`Đã tải tệp ${fileName}. Đang lưu vào mục "${activeTab !== 'all' ? activeTab : newCategory}".`);
   };
 
   // Handle Delete
@@ -216,7 +267,8 @@ export default function KnowledgePage() {
       await fetch(`/api/knowledge?id=${id}`, { method: 'DELETE' });
     } catch {}
 
-    setItems(items.filter(item => item.id !== id));
+    const updated = items.filter(item => item.id !== id);
+    updateItemsAndPersist(updated);
     if (viewingItem?.id === id) setViewingItem(null);
     showToast('Đã xóa tài liệu thành công');
   };
@@ -272,7 +324,10 @@ export default function KnowledgePage() {
               accept=".txt,.md,.pdf,.docx,.xlsx,.json"
             />
             <button
-              onClick={() => fileInputRef.current?.click()}
+              onClick={() => {
+                if (activeTab !== 'all') setNewCategory(activeTab);
+                fileInputRef.current?.click();
+              }}
               className="px-4 py-2.5 rounded-2xl text-xs font-bold flex items-center gap-1.5 crm-input hover:border-[#2bb9f9] shadow-sm transition-all"
             >
               <FileUp className="w-4 h-4 text-[#2bb9f9]" />
