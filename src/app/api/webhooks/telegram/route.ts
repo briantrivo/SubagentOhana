@@ -63,11 +63,11 @@ export async function POST(request: Request) {
       if (conv.aiAutoReply) {
         const aiResult = await AIEngine.executeSubagent(conv.id, text);
         
-        // If Telegram Bot Token is configured, we can reply directly to Telegram chat!
-        const botConfig = (await fetch('http://localhost:3005/api/channels/config?channelId=telegram').then(r => r.json())).data;
-        if (botConfig?.botToken && aiResult.responseMessage) {
+        // If Telegram Bot Token is configured, reply directly to Telegram chat
+        const botToken = crmStore.channelConfigs?.telegram?.botToken || process.env.TELEGRAM_BOT_TOKEN;
+        if (botToken && aiResult.responseMessage) {
           try {
-            await fetch(`https://api.telegram.org/bot${botConfig.botToken}/sendMessage`, {
+            await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({

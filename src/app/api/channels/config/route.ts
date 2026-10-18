@@ -1,36 +1,15 @@
 import { NextResponse } from 'next/server';
-
-// In-memory channel credentials config
-const channelConfigs: Record<string, any> = {
-  telegram: {
-    botToken: '',
-    webhookUrl: 'http://localhost:3005/api/webhooks/telegram'
-  },
-  facebook: {
-    pageAccessToken: '',
-    verifyToken: 'ohana_verify_token_2026',
-    webhookUrl: 'http://localhost:3005/api/webhooks/facebook'
-  },
-  zalo_oa: {
-    oaId: '',
-    appId: '',
-    secretKey: '',
-    webhookUrl: 'http://localhost:3005/api/webhooks/zalo'
-  },
-  webchat: {
-    widgetScript: '<script src="http://localhost:3005/widget.js" data-crm-id="ohana-crm"></script>'
-  }
-};
+import { crmStore } from '@/lib/store';
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const channelId = searchParams.get('channelId');
 
-  if (channelId && channelConfigs[channelId]) {
-    return NextResponse.json({ success: true, data: channelConfigs[channelId] });
+  if (channelId && crmStore.channelConfigs[channelId]) {
+    return NextResponse.json({ success: true, data: crmStore.channelConfigs[channelId] });
   }
 
-  return NextResponse.json({ success: true, data: channelConfigs });
+  return NextResponse.json({ success: true, data: crmStore.channelConfigs });
 }
 
 export async function POST(request: Request) {
@@ -42,15 +21,29 @@ export async function POST(request: Request) {
       return NextResponse.json({ success: false, error: 'Missing parameters' }, { status: 400 });
     }
 
-    channelConfigs[channelId] = {
-      ...(channelConfigs[channelId] || {}),
+    crmStore.channelConfigs[channelId] = {
+      ...(crmStore.channelConfigs[channelId] || {}),
       ...config
     };
+
+    // Auto register Telegram webhook if botToken is provided and on public host
+    if (channelId === 'telegram' && config.botToken) {
+      const host = request.headers.get('host');
+      const proto = request.headers.get('x-forwarded-proto') || 'https';
+      if (host && !host.includes('localhost')) {
+        const webhookUrl = `${proto}://${host}/api/webhooks/telegram`;
+        try {
+          await fetch(`https://api.telegram.org/bot${config.botToken.trim()}/setWebhook?url=${encodeURIComponent(webhookUrl)}`);
+        } catch (e) {
+          console.error('Failed to auto register telegram webhook', e);
+        }
+      }
+    }
 
     return NextResponse.json({
       success: true,
       message: `Đã lưu cấu hình kênh ${channelId} thành công!`,
-      data: channelConfigs[channelId]
+      data: crmStore.channelConfigs[channelId]
     });
   } catch (error: any) {
     return NextResponse.json({ success: false, error: error.message }, { status: 500 });

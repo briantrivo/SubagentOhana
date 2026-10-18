@@ -50,7 +50,7 @@ const GUIDES: Record<string, ChannelGuide> = {
     fields: [
       { key: 'botToken', label: 'Telegram Bot Token', placeholder: 'vd: 7123456789:AAF_kL9...', type: 'password' }
     ],
-    webhookUrl: 'http://localhost:3005/api/webhooks/telegram'
+    webhookUrl: '/api/webhooks/telegram'
   },
   facebook: {
     title: 'Kết nối Facebook Messenger Fanpage',
@@ -68,7 +68,7 @@ const GUIDES: Record<string, ChannelGuide> = {
       { key: 'pageAccessToken', label: 'Page Access Token', placeholder: 'EAAQ...', type: 'password' },
       { key: 'verifyToken', label: 'Mã xác minh (Verify Token)', placeholder: 'ohana_verify_token_2026', defaultValue: 'ohana_verify_token_2026' }
     ],
-    webhookUrl: 'https://your-domain.com/api/webhooks/facebook'
+    webhookUrl: '/api/webhooks/facebook'
   },
   webchat: {
     title: 'Nhúng Khung Chat trên Website (Widget)',
@@ -117,7 +117,7 @@ const GUIDES: Record<string, ChannelGuide> = {
       { key: 'appId', label: 'Zalo App ID', placeholder: 'vd: 456789...' },
       { key: 'secretKey', label: 'Secret Key', placeholder: 'vd: abcxyz...', type: 'password' }
     ],
-    webhookUrl: 'https://your-domain.com/api/webhooks/zalo'
+    webhookUrl: '/api/webhooks/zalo'
   },
   instagram: {
     title: 'Kết nối Instagram Direct',
@@ -143,7 +143,7 @@ const GUIDES: Record<string, ChannelGuide> = {
       '3. Subagent sẽ nhận diện tin nhắn và gửi lại phản hồi thông qua webhook tương ứng.'
     ],
     fields: [],
-    webhookUrl: 'https://your-domain.com/api/webhooks/tiktok'
+    webhookUrl: '/api/webhooks/tiktok'
   }
 };
 
@@ -153,10 +153,50 @@ export default function ChannelsPage() {
   const [fieldValues, setFieldValues] = useState<Record<string, string>>({});
   const [copiedKey, setCopiedKey] = useState<string | null>(null);
   const [isSaved, setIsSaved] = useState(false);
+  const [clientOrigin, setClientOrigin] = useState('https://subagent-ohana.vercel.app');
+  const [testMsg, setTestMsg] = useState('Chào bot, tư vấn giúp tôi gói dịch vụ Ohana!');
+  const [testResult, setTestResult] = useState<string | null>(null);
+  const [isTesting, setIsTesting] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setClientOrigin(window.location.origin);
+    }
+  }, []);
+
+  const handleSendTestWebhook = async () => {
+    if (!testMsg.trim()) return;
+    setIsTesting(true);
+    setTestResult(null);
+    try {
+      const res = await fetch('/api/webhooks/telegram', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          message: {
+            chat: { id: 888999111 },
+            from: { first_name: 'Khách Test Telegram', username: 'test_telegram_user' },
+            text: testMsg.trim()
+          }
+        })
+      });
+      const data = await res.json();
+      if (data.ok) {
+        setTestResult('Đã gửi tin thành công! Tin nhắn đã xuất hiện trong Hộp thư (Inbox) và được Subagent tiếp nhận tự động.');
+      } else {
+        setTestResult('Gửi test thất bại: ' + (data.error || 'Lỗi không xác định'));
+      }
+    } catch (e: any) {
+      setTestResult('Lỗi kết nối test: ' + e.message);
+    } finally {
+      setIsTesting(false);
+    }
+  };
 
   const openConfigModal = (channel: ChannelStatus) => {
     setSelectedChannel(channel);
     setIsSaved(false);
+    setTestResult(null);
 
     // Load defaults if any
     const guide = GUIDES[channel.id];
@@ -398,11 +438,11 @@ export default function ChannelsPage() {
                   <input
                     type="text"
                     readOnly
-                    value={guide.webhookUrl}
+                    value={`${clientOrigin}${guide.webhookUrl}`}
                     className="flex-1 px-3.5 py-2.5 text-xs font-mono bg-[#070b34] border border-[#ad30fb]/30 rounded-xl text-cyan-300 select-all focus:outline-none"
                   />
                   <button
-                    onClick={() => handleCopy(guide.webhookUrl!, 'webhook')}
+                    onClick={() => handleCopy(`${clientOrigin}${guide.webhookUrl}`, 'webhook')}
                     className="px-3.5 py-2.5 bg-white/10 hover:bg-white/20 rounded-xl text-xs font-bold text-white flex items-center gap-1.5 border border-white/20 transition-colors"
                   >
                     {copiedKey === 'webhook' ? (
@@ -418,6 +458,55 @@ export default function ChannelsPage() {
                     )}
                   </button>
                 </div>
+              </div>
+            )}
+
+            {/* Thử nghiệm giả lập tin nhắn Telegram / Webhook */}
+            {selectedChannel.id === 'telegram' && (
+              <div className="p-4 bg-sky-950/40 border border-sky-400/40 rounded-2xl space-y-3">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <Send className="w-4 h-4 text-sky-400" />
+                    <span className="text-xs font-bold text-sky-300 uppercase tracking-wide">
+                      Thử nghiệm giả lập tin nhắn Telegram ngay tại đây
+                    </span>
+                  </div>
+                  <span className="text-[10px] bg-sky-500/20 text-sky-300 px-2 py-0.5 rounded-full font-bold">
+                    Test trực tiếp
+                  </span>
+                </div>
+                <p className="text-xs text-slate-300">
+                  Gửi một tin nhắn mẫu để kiểm tra xem Subagent AI có tự động tiếp nhận và phản hồi không:
+                </p>
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
+                  <input
+                    type="text"
+                    value={testMsg}
+                    onChange={(e) => setTestMsg(e.target.value)}
+                    placeholder="Nhập câu hỏi test cho Subagent..."
+                    className="flex-1 px-3.5 py-2 text-xs bg-[#070b34] text-white border border-sky-400/30 rounded-xl focus:outline-none focus:border-sky-400 font-medium"
+                  />
+                  <button
+                    type="button"
+                    disabled={isTesting}
+                    onClick={handleSendTestWebhook}
+                    className="px-4 py-2 bg-sky-500 hover:bg-sky-400 text-slate-950 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 transition-colors disabled:opacity-50 flex-shrink-0"
+                  >
+                    {isTesting ? <span>Đang xử lý...</span> : <span>Gửi tin test</span>}
+                  </button>
+                </div>
+                {testResult && (
+                  <div className="p-3 bg-emerald-950/70 border border-emerald-500/50 rounded-xl text-xs text-emerald-300 font-medium flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                    <span>{testResult}</span>
+                    <a
+                      href="/inbox"
+                      className="inline-flex items-center gap-1 px-3 py-1 bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-200 rounded-lg font-bold underline flex-shrink-0"
+                    >
+                      <span>Mở Hộp thư (Inbox)</span>
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </a>
+                  </div>
+                )}
               </div>
             )}
 

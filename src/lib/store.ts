@@ -46,6 +46,26 @@ class CRMStore {
     thirtyDaysToken: 0,
     thirtyDaysCalls: 0
   };
+  public channelConfigs: Record<string, any> = {
+    telegram: {
+      botToken: process.env.TELEGRAM_BOT_TOKEN || '',
+      webhookUrl: '/api/webhooks/telegram'
+    },
+    facebook: {
+      pageAccessToken: process.env.FB_PAGE_ACCESS_TOKEN || '',
+      verifyToken: 'ohana_verify_token_2026',
+      webhookUrl: '/api/webhooks/facebook'
+    },
+    zalo_oa: {
+      oaId: '',
+      appId: '',
+      secretKey: '',
+      webhookUrl: '/api/webhooks/zalo'
+    },
+    webchat: {
+      widgetScript: '<script src="/widget.js" data-crm-id="ohana-crm"></script>'
+    }
+  };
 
   private constructor() {}
 
